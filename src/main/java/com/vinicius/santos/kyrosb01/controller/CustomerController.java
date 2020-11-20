@@ -20,7 +20,7 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
 
-    @PostMapping(path = "/add")
+    @PostMapping(path = "/addCustomer")
     public @ResponseBody
     ResponseEntity addNewCostumer(@RequestBody CustomerEntity customerEntity) {
         if (customerEntity != null && customerEntity.getCustomerBirthDate() != null && customerEntity.getCustomerCpf() != null
@@ -81,7 +81,7 @@ public class CustomerController {
         }
     }
 
-    @PutMapping(path = "update")
+    @PutMapping(path = "/update")
     public @ResponseBody
     ResponseEntity updateCUstomer(@RequestParam String customerCpf, @RequestBody CustomerEntity customerEntity) {
         if (customerEntity != null && customerEntity.getCustomerBirthDate() != null && customerEntity.getCustomerCpf() != null
