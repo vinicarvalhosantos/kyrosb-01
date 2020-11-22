@@ -33,6 +33,7 @@ Por padrão a documentação está disponível no endpoint `/swagger-ui.html#/`.
 
 ```
 
+* Maven
 * Docker
 * Docker Compose
 * Mysql
