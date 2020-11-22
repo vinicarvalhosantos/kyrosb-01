@@ -9,6 +9,7 @@ Este projeto é responsável por gerenciar os clientes de um app ficticio com pr
   - [Instalação](#instalação)
     - [Docker](#docker-compose)
   - [Configuração](#configuração)
+  - [Testes](#Testes)
   
 ### Documentação APIs
 
@@ -62,3 +63,12 @@ Lista de variáveis de ambiente necessárias para a execução da aplicação
 | DATABASE_PASSWORD      | Senha do usuário para acesso ao banco |  Texto   |     Não     |    kyros-api    |
 | DATABASE_HOST          | Host para acesso ao Banco             |  Texto   |     Não     |    localhost    |
 | DATABASE_PORT          | Porta para acesso ao Banco            | Numérico |     Não     |      3306       |
+
+
+### Testes
+
+```bash
+# unit tests
+$ mvn clean verify
+
+```
