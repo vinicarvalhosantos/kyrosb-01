@@ -3,10 +3,12 @@ package com.vinicius.santos.kyrosb01;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vinicius.santos.kyrosb01.controller.CustomerController;
 import com.vinicius.santos.kyrosb01.entity.CustomerEntity;
+import com.vinicius.santos.kyrosb01.repository.CustomerRepository;
 import com.vinicius.santos.kyrosb01.response.ErrorResponse;
 import com.vinicius.santos.kyrosb01.response.RequestResponse;
 import com.vinicius.santos.kyrosb01.response.SuccessResponse;
 import com.vinicius.santos.kyrosb01.service.CustomerService;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,9 @@ public class CustomerControllerTest {
 
     @MockBean
     CustomerService customerService;
+
+    @MockBean
+    CustomerRepository customerRepository;
 
     ObjectMapper objectMapper = new ObjectMapper();
 
@@ -71,6 +76,12 @@ public class CustomerControllerTest {
         customerEntityRequest.setCustomerBirthDate(new SimpleDateFormat("dd/MM/yyyy").parse("01/01/2000"));
 
         when(customerService.newCustomer(any(CustomerEntity.class))).thenReturn(requestResponse);
+
+        when(customerRepository.save(customerEntityRequest)).thenReturn(customerEntityExpected);
+
+        requestResponse = customerService.newCustomer(customerEntityRequest);
+
+        Assert.assertNotNull(requestResponse);
 
         mockMvc.perform(post("/customer/addCustomer")
                 .content(objectMapper.writeValueAsString(customerEntityRequest))
