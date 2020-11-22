@@ -45,10 +45,20 @@ public class CustomerService {
     public RequestResponse getAllCustomers() {
         try {
             Iterable<CustomerEntity> customers = customerRepository.findAll();
-            SuccessResponse successResponse = new SuccessResponse();
-            successResponse.setRecords(customers);
-            successResponse.setSuccess(true);
-            return new RequestResponse(successResponse, HttpStatus.OK);
+            List<CustomerEntity> customerEntityList = new ArrayList<>();
+            customers.forEach(customerEntityList::add);
+            if(customerEntityList.size() != 0) {
+                SuccessResponse successResponse = new SuccessResponse();
+                successResponse.setRecords(customerEntityList);
+                successResponse.setSuccess(true);
+                return new RequestResponse(successResponse, HttpStatus.OK);
+            }else{
+                ErrorResponse errorResponse = new ErrorResponse();
+                errorResponse.setStatusCode(404);
+                errorResponse.setSuccess(false);
+                errorResponse.setMessage("Não há clientes para serem buscados.");
+                return new RequestResponse(errorResponse, HttpStatus.NOT_FOUND);
+            }
         } catch (Exception e) {
             return new RequestResponse(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

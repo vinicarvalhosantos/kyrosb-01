@@ -127,6 +127,19 @@ public class CustomerServiceTest {
     }
 
     @Test
+    public void it_should_have_no_customers() {
+
+        List<CustomerEntity> customers = new ArrayList<>();
+
+        when(customerRepository.findAll()).thenReturn(customers);
+
+        RequestResponse requestResponse = customerService.getAllCustomers();
+
+        Assert.assertNotNull(requestResponse);
+        Assert.assertEquals(HttpStatus.NOT_FOUND, requestResponse.getHttpStatus());
+    }
+
+    @Test
     public void it_should_not_get_all_customers() {
 
         when(customerRepository.findAll()).thenThrow();
