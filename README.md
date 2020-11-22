@@ -70,6 +70,8 @@ Lista de variáveis de ambiente necessárias para a execução da aplicação
 
 ```bash
 # unit tests
-$ mvn clean verify
+$ mvn package
 
 ```
+> A pasta para verificar o coverage do projeto se encontra na pasta raiz do projeto > target/site/jacoco/index.html.
+>Também é possivel verificar pela badge do [gitlab do projeto](https://gitlab.com/vinicius.csantos/kyrosb-01)
