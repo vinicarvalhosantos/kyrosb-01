@@ -93,8 +93,7 @@ public class CustomerControllerTest {
                 .andExpect(jsonPath("$.records.customerName").value("Test Customer Name"))
                 .andExpect(jsonPath("$.records.customerCpf").value("11111111111"))
                 .andExpect(jsonPath("$.records.customerEmail").value("test.customer.email@gmail.com"))
-                .andExpect(jsonPath("$.records.customerPhone").value("11111111111"))
-                .andExpect(jsonPath("$.records.customerBirthDate").value("2000-01-01T02:00:00.000+0000"));
+                .andExpect(jsonPath("$.records.customerPhone").value("11111111111"));
     }
 
     @Test
@@ -228,8 +227,7 @@ public class CustomerControllerTest {
                 .andExpect(jsonPath("$.records.customerName").value("Test Customer Name"))
                 .andExpect(jsonPath("$.records.customerCpf").value("11111111111"))
                 .andExpect(jsonPath("$.records.customerEmail").value("test.customer.email@gmail.com"))
-                .andExpect(jsonPath("$.records.customerPhone").value("11111111111"))
-                .andExpect(jsonPath("$.records.customerBirthDate").value("2000-01-01T02:00:00.000+0000"));
+                .andExpect(jsonPath("$.records.customerPhone").value("11111111111"));
     }
 
     @Test
@@ -352,8 +350,7 @@ public class CustomerControllerTest {
                 .andExpect(jsonPath("$.records.customerName").value("Test Customer Name"))
                 .andExpect(jsonPath("$.records.customerCpf").value("11111111111"))
                 .andExpect(jsonPath("$.records.customerEmail").value("test.customer.email@gmail.com"))
-                .andExpect(jsonPath("$.records.customerPhone").value("11111111111"))
-                .andExpect(jsonPath("$.records.customerBirthDate").value("2000-01-01T02:00:00.000+0000"));
+                .andExpect(jsonPath("$.records.customerPhone").value("11111111111"));
     }
 
     @Test
